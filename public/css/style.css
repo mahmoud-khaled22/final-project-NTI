@@ -82,12 +82,12 @@ position: relative;
     top:-160%;
     left: -20%;
 }
-.hero .bttn{
+.bttn{
     background-color: var(--primary-color);
 
 }
 
-.hero .bttn:hover{
+.bttn:hover{
     background-color: var(--hover-color);
     color: var(--second-color);
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="bg-light">
 
@@ -47,12 +48,12 @@
                 </div>
 
                 
-                <button type="submit" class="btn btn-primary w-100 mt-3">Register</button>
+                <button type="submit" class="btn bttn w-100 mt-3">Register</button>
 
                 
-                <!-- <p class="text-center mt-3">
+                 <p class="text-center mt-3">
                     Already have an account? <a href="#">Login</a>
-                </p> -->
+                </p> 
             </form>
         </div>
     </div>

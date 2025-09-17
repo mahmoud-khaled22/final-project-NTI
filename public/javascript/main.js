@@ -18,5 +18,6 @@ menu.onclick=()=>{
      bar.classList.replace("fa-x","fa-bars");
     }
     navbar.classList.toggle('show');
+    console.log(22);
 
 }

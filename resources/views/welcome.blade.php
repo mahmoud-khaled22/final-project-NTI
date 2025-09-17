@@ -8,8 +8,7 @@
     <title>Academix</title>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
       
   <div class="container-fluid justify-content-between my-2">
     <div class>
@@ -17,14 +16,14 @@
         <a class="navbar-brand logo" href="#">Acade<span class="sub-logo">mix</span></a>
     </div>
     
-    <div class="navbar-edit ms-auto" >
+    <div class="navbar-edit " >
         <ul class="navbar-nav  ">
-            <!-- <li class="nav-item mx-2">
+             <li class="nav-item mx-2">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li> -->
-            <!-- <li class="nav-item mx-2">
+            </li> 
+            <li class="nav-item mx-2">
                 <a class="nav-link" href="#">Courses</a>
-            </li> -->
+            </li> 
             <li class="nav-item mx-2">
                 <a class="nav-link " href="{{route('register.index')}}">Login</a>
             </li>
@@ -38,9 +37,7 @@
         </div>
         <div class="menu-icon" id="menu-icon"><i class="fa-solid fa-bars"></i></div>
     </div>
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> -->
+    
 </div>
 </nav>
     <section class=" hero ">
@@ -83,10 +80,9 @@
         </div>
     </section>
 
-
     <script src="https://kit.fontawesome.com/fca3fc4c97.js" crossorigin="anonymous"></script>
-    <!-- <script src="javascript/bootstrap.min.js"></script> -->
-    <script src="{{ asset('js/main.js') }}"></script>
+     <script src="javascript/bootstrap.min.js"></script> 
+    <script src="{{ asset('javascript/main.js') }}"></script>
 </body>
 </html>
 
