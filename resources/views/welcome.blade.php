@@ -22,15 +22,25 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li> 
             <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Courses</a>
+                <a class="nav-link" href="{{route('cousres')}}">Courses</a>
             </li> 
             <li class="nav-item mx-2">
                 <a class="nav-link " href="{{route('register.index')}}">Login</a>
             </li>
+        
         </ul>
     </div >
 
     <div class="d-flex">
+        <div class="d-flex justify-content-center">
+            <div class="icon-pro">
+                <a href="{{ route('in') }}"><i  class="fa-solid fa-circle-user"></i></a>
+                
+            </div>
+            <div class="pt-2 mx-2"">
+                <p >name</p>
+            </div>
+        </div>
         <div class="cart me-2">
             <div class="count-cart rounded-circle text-center position-absolute  ">0</div>
             <i class="fa-solid fa-cart-shopping"></i>
