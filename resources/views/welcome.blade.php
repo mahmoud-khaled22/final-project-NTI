@@ -13,7 +13,7 @@
   <div class="container-fluid justify-content-between my-2">
     <div class>
         
-        <a class="navbar-brand logo" href="#">Acade<span class="sub-logo">mix</span></a>
+        <a class="navbar-brand logo" href="#">Acade{{ $username ?? '' }}<span class="sub-logo">mix</span></a>
     </div>
     
     <div class="navbar-edit " >
@@ -25,7 +25,7 @@
                 <a class="nav-link" href="#">Courses</a>
             </li> 
             <li class="nav-item mx-2">
-                <a class="nav-link " href="{{route('register.index')}}">Login</a>
+                <a class="nav-link " href="{{route('login')}}">Login</a>
             </li>
         </ul>
     </div >

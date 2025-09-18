@@ -24,18 +24,19 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * انشاء حساب 
      */
     public function store(Request $request)
     {
-        User::create([
+        
+        $user =User::create([
             'name' => $request->name ,
             'email' => $request->email ,
             'password' =>$request->password ,
             'role' =>$request->role,  
           ]);
 
-          return response('doneeeeeeeee');
+          return view('welcome', ['username' => $user->name]);
     }
 
     /**

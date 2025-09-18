@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class register extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * .
      */
     public function index()
     {
@@ -19,17 +21,25 @@ class register extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
-     * Store a newly created resource in storage.
+     * مقارنه البيانات الجايه من login
+     * مع data base.
      */
     public function store(Request $request)
     {
-       
-
-    }
+      
+            $credentials = $request->only('email', 'password');
+        
+            if (Auth::attempt($credentials)) {
+                return redirect('/');
+            }
+        
+            return back()->withErrors(['email' => 'Email or password is incorrect.']);
+    
+        }
 
     /**
      * Display the specified resource.

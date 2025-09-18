@@ -52,7 +52,7 @@
 
                 
                  <p class="text-center mt-3">
-                    Already have an account? <a href="#">Login</a>
+                    Already have an account? <a href="{{route('login')}}">Login</a>
                 </p> 
             </form>
         </div>
