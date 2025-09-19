@@ -39,9 +39,7 @@ class UserController extends Controller
           return view('welcome', ['username' => $user->name]);
     }
 
-    /**
-     * Display the specified resource.
-     */
+ 
     public function show(user $user)
     {
         //

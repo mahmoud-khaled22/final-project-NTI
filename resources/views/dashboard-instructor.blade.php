@@ -110,7 +110,8 @@
   <div class="modal fade" id="addCourseModal" tabindex="-1" aria-labelledby="addCourseLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="addCourseForm" class="needs-validation" novalidate>
+        <form id="addCourseForm" class="needs-validation" action="{{ route('addcourse') }} method="POST" novalidate>
+          @csrf
           <div class="modal-header">
             <h5 class="modal-title" id="addCourseLabel">Add New Course</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -121,35 +122,44 @@
 
             <div class="mb-3">
               <label for="courseName" class="form-label">Course Name</label>
-              <input type="text" class="form-control" id="courseName" required>
+              <input type="text" class="form-control" name="courseName" id="courseName" required>
               <div class="invalid-feedback">Course name is required.</div>
             </div>
 
             <div class="mb-3">
               <label for="courseCategory" class="form-label">Category</label>
-              <select id="courseCategory" class="form-select" required>
+              <select id="courseCategory" class="form-select" name="courseCategory" required>
                 <option value="IT">IT</option>
                 <option value="Business">Business</option>
-                <option value="Design">Design</option>
+                <option value="Design">Art</option>
                 <option value="Health">Health</option>
                 <option value="Education">Education</option>
               </select>
               <div class="invalid-feedback">Please select a category.</div>
             </div>
+            <div class="mb-3">
+            <label for="startDate" class="form-label">Start Date:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" required>
+             <div class="invalid-feedback">Please date is required.</div>
+            </div>
+
+              <div class="mb-3">
+              <label for="courseDescription" class="form-label">Course Description</label>
+              <input type="text" class="form-control" name="courseDescription" id="courseDescription" required>
+              <div class="invalid-feedback">Course Descriotion is required.</div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="maxStudents" class="form-label">Max Number Of Student</label>
+              <input type="number" id="maxStudents" name="maxStudents" class="form-control" min="0" placeholder="0">
+            </div>
+            
 
             <div class="mb-3">
               <label for="coursePrice" class="form-label">Price ($)</label>
-              <input type="number" id="coursePrice" class="form-control" min="0" placeholder="e.g. 49">
+              <input type="number" id="coursePrice" name="coursePrice" class="form-control" min="0" placeholder="e.g. 49">
             </div>
 
-            <div class="mb-3">
-              <label for="courseStatus" class="form-label">Status</label>
-              <select id="courseStatus" class="form-select">
-                <option>Active</option>
-                <option>Draft</option>
-                <option>Archived</option>
-              </select>
-            </div>
           </div>
 
           <div class="modal-footer">

@@ -1,18 +1,18 @@
 <?php
 
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\register;
 use App\Http\Controllers\UserController;
-<<<<<<< HEAD
 use App\Http\Controllers\login;
-=======
 use App\Models\Course;
->>>>>>> 8c0ba10ded77ba49304a087ad8896dafc6fd14e3
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+
+
+Route::get('/',[homeController::class,'index'])->name('home');
+
+Route::post('addcourse',[homeController::class,'store'])->name('addcourse');
 
 Route::get('/in', function () {
     return view('dashboard-instructor');

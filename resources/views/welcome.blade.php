@@ -152,89 +152,38 @@
         <div class="container">
             <div class="d-flex justify-content-between py-2 mb-2">
                 <div class="b-courses fw-bolder ">Best Courses</div>
-                    <div class="btn bttn">Show All Courses</div>
+                    <div class="btn bttn" href="{{route('cousres')}}">Show All Courses</div>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-3 col-md-4 mb-2">
+                  @if (@isset($data) and !@empty($data))
+                    @foreach ($data as $info)
+                    <div class="col-12 col-lg-3 col-md-4 mb-2">
                     <div class="card" >
                     <img src="img/Learn How to Edit Videos and Photos with AI.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class=" fw-lighter data-of-instructor">name-of-instructor</p>
-                        <h5 class="card-title">IT</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class=" fw-lighter data-of-instructor">{{ $info->instructor->name }}</p>
+                         <h6 class="card-title">{{ $info->category->name }}</h6>
+                        <h5 class="card-title">{{ $info->title}}</h5>
+                        <p class="card-text">{{ $info->description }}</p>
                         <div class="row ">
-                            <div class="col-4 ">
-                                <span class="fw-medium">Price</span>
-                                <span class="fs-3">33$</span>
-                            </div>
-                             <div class="col-8">
-                                <a href="#" class="btn bttn w-100 fw-bold py-3 rounded-2 ">Enroll</a>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-lg-3 col-md-4 mb-2">
-                    <div class="card" >
-                    <img src="img/Learn How to Edit Videos and Photos with AI.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class=" fw-lighter data-of-instructor">name-of-instructor</p>
-                        <h5 class="card-title">IT</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <div class="row ">
-                            <div class="col-4 ">
-                                <span class="fw-medium">Price</span>
-                                <span class="fs-3">33$</span>
-                            </div>
-                             <div class="col-8">
-                                <a href="#" class="btn bttn w-100 fw-bold py-3 rounded-2 ">Enroll</a>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                            <div class="col-5 ">
+                                <div class="d-flex flex-column">
 
-                <div class="col-12 col-lg-3 col-md-4 mb-2">
-                    <div class="card" >
-                    <img src="img/Learn How to Edit Videos and Photos with AI.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class=" fw-lighter data-of-instructor">name-of-instructor</p>
-                        <h5 class="card-title">IT</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <div class="row ">
-                            <div class="col-4 ">
-                                <span class="fw-medium">Price</span>
-                                <span class="fs-3">33$</span>
+                                    <span class="fw-medium">Price</span>
+                                    <span class="fs-3">{{ $info->price }}$</span>
+                                </div>
                             </div>
-                             <div class="col-8">
+                             <div class="col-7">
                                 <a href="#" class="btn bttn w-100 fw-bold py-3 rounded-2 ">Enroll</a>
                             </div>
                         </div>
-                      </div>
+                       </div>
+                     </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-lg-3 col-md-4 mb-2">
-                    <div class="card" >
-                    <img src="img/Learn How to Edit Videos and Photos with AI.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class=" fw-lighter data-of-instructor">name-of-instructor</p>
-                        <h5 class="card-title">IT</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <div class="row ">
-                            <div class="col-4 d-sm-block">
-                                <span class="fw-medium">Price</span>
-                                <span class="fs-3">33$</span>
-                            </div>
-                             <div class="col-8">
-                                <a href="#" class="btn bttn w-100 fw-bold py-3 rounded-2 ">Enroll</a>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-        
+                        
+                    @endforeach
+                        
+                    @endif
             </div>
         </div>
     </section>
