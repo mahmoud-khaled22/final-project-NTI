@@ -17,7 +17,11 @@
         <a href="#" class="nav-link "> Students</a>  
     </div>
     <div>
-        <button class="btn btn-outline-danger">Logout</button>
+      <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+         @csrf
+       <button type="submit" class="btn btn-outline-danger">Logout</button>
+      </form>
+
     </div>
   </div>
 
@@ -123,7 +127,7 @@
   <div class="modal fade" id="addCourseModal" tabindex="-1" aria-labelledby="addCourseLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form id="addCourseForm" class="needs-validation" action="{{ route('addcourse') }} method="POST" novalidate>
+        <form id="addCourseForm" class="needs-validation" action="{{ route('addcourse') }}" method="POST" novalidate>
           @csrf
           <div class="modal-header">
             <h5 class="modal-title" id="addCourseLabel">Add New Course</h5>

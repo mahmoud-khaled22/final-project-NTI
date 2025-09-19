@@ -18,18 +18,17 @@ class CoursesController extends Controller
      
     public function store(Request $request){
          $data = Course::withTrashed()->with(['category'])->get();
-         $catergory = $request->courseCategory;
+         $category = $request->courseCategory;
          $ans=0;
-         $fid=1;
+    
          foreach($data as $info ){
-            if($info->catefory->name==$catergory){
-                $ans=$info->catefory->id;
-                break;
+            if($info->category->name==$category){
+                $ans=$info->category->id;
+                 break;
             }
             
          }
          
-        $fid = Auth::id();
         
         $dataToInsert=[
             'title'=>$request->courseName,
@@ -37,12 +36,12 @@ class CoursesController extends Controller
             'start_date'=>$request->startDate,
             'max_students'=>$request->maxStudents,
             'price'=>$request->coursePrice,
-            'instructor_id'=>$fid,
+            'instructor_id'=> Auth::id(),
             'category_id'=>$ans,
         ];
 
         Course::create($dataToInsert);
-        
+          return redirect()->back()->with('success', 'Course created successfully');
         
         
 

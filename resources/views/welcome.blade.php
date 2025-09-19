@@ -25,28 +25,31 @@
                 <a class="nav-link" href="{{route('cousres')}}">Courses</a>
             </li> 
             <li class="nav-item mx-2">
-                <a class="nav-link " href="{{route('login')}}">Login</a>
+                 @if(Auth::check())
+                 <a class="nav-link " href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
+                 @else
+                 <a class="nav-link " href="{{route('login')}}">Login</a>
+                 @endif
             </li>
         
         </ul>
     </div >
+   
 
     <div class="d-flex">
         <div class="d-flex justify-content-center">
+             @if(Auth::check())
             <div class="icon-pro">
                 <a href="{{ route('in') }}"><i  class="fa-solid fa-circle-user"></i></a>
+            </div>
+            <div class=" mx-2  ">
+                <p >{{ $username ?? '' }}</p>
+            
+                {{ Auth::user()->name }}
                 
             </div>
-            <div class="pb-5 mx-2 ">
-                <!-- resiter return name -->
-                <p >{{ $username ?? '' }}</p>
-                <!-- login return name    -->
-                @if(Auth::check())
-                <p>{{ Auth::user()->name }}</p>
-                @endif
-  
-
-            </div>
+            @endif
         </div>
         <div class="cart me-2">
             <div class="count-cart rounded-circle text-center position-absolute  ">0</div>

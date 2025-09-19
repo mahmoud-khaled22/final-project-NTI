@@ -12,7 +12,7 @@ use App\Models\Course;
 
 Route::get('/',[homeController::class,'index'])->name('home');
 
-Route::post('addcourse',[homeController::class,'store'])->name('addcourse');
+Route::post('addcourse',[CoursesController::class,'store'])->name('addcourse');
 
 Route::get('/in', function () {
     return view('dashboard-instructor');
@@ -27,3 +27,4 @@ Route::resource('users',UserController::class);
 
 Route::get('login', [login::class, 'showLoginForm'])->name('login');
 Route::post('login', [login::class, 'login']);
+Route::post('logout',[ UserController::class,'destroy'])->name('logout');
