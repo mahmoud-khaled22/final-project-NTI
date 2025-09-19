@@ -24,24 +24,24 @@
     </div>
   </div>
 
-  <!-- Main -->
+ 
   <div class="content">
     
 
-    <!-- Profile -->
+   
     <div class="card profile-card p-3 mb-4 shadow-sm">
       <div class="d-flex align-items-center gap-3">
         <div>
-          <!-- username in dash board -->
+         
           <h5 class="mb-0">
-            <!-- resiter -->
+
             <p >{{ $username ?? '' }}</p>
-                <!-- login retuen name  -->
+           
                 @if(Auth::check())
                 <p>{{ Auth::user()->name }}</p>
                 @endif
           </h5>
-          <!-- login retuen email  -->
+        
           <small class="text-muted">
                 @if(Auth::check())
                 <p>{{ Auth::user()->email }}</p>
@@ -108,7 +108,7 @@
     </table>
   </div>
 
-  <!-- Add Course Modal -->
+ 
   <div class="modal fade" id="addCourseModal" tabindex="-1" aria-labelledby="addCourseLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

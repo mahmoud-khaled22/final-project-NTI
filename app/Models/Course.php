@@ -19,10 +19,12 @@ class Course extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function students()
-    {
-        return $this->belongsToMany(User::class, 'enrollments', 'course_id', 'user_id')
-                    ->withTimestamps();
-    }
+   public function students()
+{
+    return $this->belongsToMany(User::class, 'course_user')
+                ->withPivot('status', 'enrolled_at')
+                ->withTimestamps();
+}
+
 
 }

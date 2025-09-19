@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\register;
@@ -25,7 +26,7 @@ Route::get('instructor/{id}',[DashboardController::class,'edit'])->name('instruc
 Route::post('updateinstructor/{id}',[DashboardController::class,'update'])->name('updateInstructorById');
 
 Route::get('deletecourse/{id}',[DashboardController::class,'delete'])->name('deletecourse');
-Route::post('/courses/{id}/enroll', [CoursesController::class, 'enroll'])->name('courses.enroll')->middleware('auth');
+
 
 Route::resource('register',register::class);
 
