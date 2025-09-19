@@ -45,7 +45,7 @@ class DashboardController extends Controller
      
     return redirect()->route('instructor')->with('success', 'Course deleted successfully.');
 
-     //return redirect()->route("instructor");
+    
     }
     
 

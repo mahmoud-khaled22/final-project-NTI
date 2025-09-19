@@ -11,7 +11,7 @@ class CoursesController extends Controller
 {
     
     public function index(){
-       $data = Course::withTrashed()->with(['instructor', 'category', 'students'])->get();
+       $data = Course::withTrashed()->with(['instructor', 'category'])->get();
     
         return view('courses',['data'=>$data]);
     }
