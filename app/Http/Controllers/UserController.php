@@ -9,25 +9,19 @@ use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
-        //
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         //
     }
 
-    /**
-     * انشاء حساب 
-     */
+    
     public function store(Request $request)
     {
         
@@ -38,7 +32,7 @@ class UserController extends Controller
             'role' =>$request->role,  
           ]);
 
-          return view('welcome', ['username' => $user->name]);
+          return view('loginbage');
     }
 
  

@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+  
 
   <div class="sidebar d-flex flex-column justify-content-between ">
     
      <div>
-        <a href="#" class="nav-link "> Dashboard</a>
         <a href="#" class="nav-link click"> My Courses</a>
-        <a href="#" class="nav-link "> Students</a>  
     </div>
     <div>
       <form action="{{ route('logout') }}" method="POST" style="display: inline;">
@@ -54,33 +53,10 @@
 
    
     <div class="row mb-4">
-      <div class="col-md-4 mb-2">
-        <div class="card text-white bg-primary">
-          <div class="card-body">
-            <h6 class="card-title"> My Courses</h6>
-            <h3 id="coursesCount" class="mb-0">2</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-2">
-        <div class="card text-white bg-success">
-          <div class="card-body">
-            <h6 class="card-title">Students</h6>
-            <h3 class="mb-0">205</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-2">
-        <div class="card text-dark bg-warning">
-          <div class="card-body">
-            <h6 class="card-title">Earnings</h6>
-            <h3 class="mb-0">$1,250</h3>
-          </div>
-        </div>
-      </div>
-    </div>
+      
+  
 
-    <!-- Add button triggers modal -->
+    
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h4 class="mb-0">My Courses</h4>
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCourseModal">+ Add New Course</button>
@@ -91,34 +67,43 @@
       <thead class="table-dark">
         <tr>
           <th style="width:50px">#</th>
-          <th>Course Name</th>
+          <th>Title</th>
           <th>Category</th>
+          <th >Max Student</th>
           <th >Price</th>
-          <th >Actions</th>
+          <th >Strat Date</th>
+          <th>
+            Edit
+          </th>
+          
         </tr>
       </thead>
       <tbody id="coursesTableBody">
-        <tr>
-          <td>1</td>
-          <td>Web Development Basics</td>
-          <td>IT</td>
-          <td>$49</td>
-          
-          <td>
-            <button class="btn btn-sm btn-warning btn-edit">Edit</button>
-            <button class="btn btn-sm btn-danger btn-delete">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Digital Marketing</td>
-          <td>Business</td>
-          <td>$59</td>
-          <td>
-            <button class="btn btn-sm btn-warning btn-edit">Edit</button>
-            <button class="btn btn-sm btn-danger btn-delete">Delete</button>
-          </td>
-        </tr>
+         @if (@isset($data) and !@empty($data))
+                    @foreach ($data as $info)
+                    @if($info->instructor->id==auth::user()->id and !$info->deleted_at)
+                     <tr>
+                      <td>{{ $info->id }}</td>
+                      <td>{{ $info->title }}</td>
+                      <td>{{ $info->category->name  }}</td>
+                      <td>{{ $info->max_students }}</td>
+                      <td>{{ $info->price }}</td>
+                      <td>{{ $info->start_date }}</td>
+                      <td>
+                     <a href="{{ route('instructorById' , $info->id) }}"> <button class="btn btn-sm btn-warning btn-edit">Edit</button></a>
+                     <a href="{{ route('deletecourse' , $info->id) }}"><button class="btn btn-sm btn-danger btn-delete">Delete</button></a>
+                      </td>
+
+
+
+                    </tr>
+                    @endif
+  
+                    @endforeach
+                        
+                    @endif
+       
+       
       </tbody>
     </table>
   </div>
@@ -187,6 +172,8 @@
       </div>
     </div>
   </div>
+
+  
   <script src="https://kit.fontawesome.com/fca3fc4c97.js" crossorigin="anonymous"></script>
     <script src=" {{ asset('javascript/bootstrap.min.js') }}"></script> 
     <script src="{{ asset('javascript/main.js') }}"></script>

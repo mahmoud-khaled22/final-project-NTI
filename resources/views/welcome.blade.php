@@ -40,9 +40,15 @@
     <div class="d-flex">
         <div class="d-flex justify-content-center">
              @if(Auth::check())
+             @if(Auth::user()->role=="student")
             <div class="icon-pro">
-                <a href="{{ route('in') }}"><i  class="fa-solid fa-circle-user"></i></a>
+                <a ><i  class="fa-solid fa-circle-user"></i></a>
             </div>
+            @else
+             <div class="icon-pro">
+                <a href="{{ route('instructor') }}"><i  class="fa-solid fa-circle-user"></i></a>
+            </div>
+            @endif
             <div class=" mx-2  ">
                 <p >{{ $username ?? '' }}</p>
             
