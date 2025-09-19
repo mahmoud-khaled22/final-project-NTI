@@ -13,13 +13,13 @@
   <div class="container-fluid justify-content-between my-2">
     <div class>
         
-        <a class="navbar-brand logo" href="#">Acade{{ $username ?? '' }}<span class="sub-logo">mix</span></a>
+        <a class="navbar-brand logo" href="#">Acade<span class="sub-logo">mix</span></a>
     </div>
     
     <div class="navbar-edit " >
         <ul class="navbar-nav  ">
              <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
             </li> 
             <li class="nav-item mx-2">
                 <a class="nav-link" href="{{route('cousres')}}">Courses</a>
@@ -37,8 +37,15 @@
                 <a href="{{ route('in') }}"><i  class="fa-solid fa-circle-user"></i></a>
                 
             </div>
-            <div class="pt-2 mx-2"">
-                <p >name</p>
+            <div class="pb-5 mx-2 ">
+                <!-- resiter return name -->
+                <p >{{ $username ?? '' }}</p>
+                <!-- login return name    -->
+                @if(Auth::check())
+                <p>{{ Auth::user()->name }}</p>
+                @endif
+  
+
             </div>
         </div>
         <div class="cart me-2">

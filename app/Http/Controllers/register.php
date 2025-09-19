@@ -34,7 +34,9 @@ class register extends Controller
             $credentials = $request->only('email', 'password');
         
             if (Auth::attempt($credentials)) {
+                // $name=Auth::user()->name;
                 return redirect('/');
+                // ->with('name',$name)
             }
         
             return back()->withErrors(['email' => 'Email or password is incorrect.']);
